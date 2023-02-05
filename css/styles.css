@@ -1,0 +1,17 @@
+body{
+    background-image: url('../assets/54336.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* CENTRAR DIV PADRE E HIJO */
+.divCenter01{
+    margin: 0 auto;
+    padding: auto;
+}
+
+.divCenter02{
+    margin:0px auto;
+}
+/* CENTRAR DIV PADRE E HIJO */
+
