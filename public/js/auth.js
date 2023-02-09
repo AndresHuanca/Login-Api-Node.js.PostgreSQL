@@ -17,18 +17,20 @@
                 formData[el.name] = el.value;
             }
         }
+
+        console.log(formData);
         
         fetch( url + 'login', { 
             method: 'POST',
             body: JSON.stringify( formData ),
-            headers: { 'Content-type': 'application/json' }
+            headers: { 'Content-type': 'application/JSON' },
             
         })
         .then( resp => resp.json())
-        .then( ({msg, token}) => {
+        .then( ({errors, token}) => {
 
-            if( msg ) {
-                return console.error( msg )
+            if( errors ) {
+                return console.error( errors )
             }
             localStorage.setItem( 'token', token );
             console.log(token );
@@ -37,7 +39,7 @@
 
         })
         .catch( err => {
-            console.log( err )
+            console.log(err);
         });
 
 
