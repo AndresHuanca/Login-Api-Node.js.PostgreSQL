@@ -4,7 +4,7 @@
 
     const url = ( window.location.hostname.includes('localhost') )
                 ? 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/auth/'
-                : 'http://localhost:8080/api/auth/';
+                : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/auth';
                 
 
    miFormulario.addEventListener( 'submit', event => {
