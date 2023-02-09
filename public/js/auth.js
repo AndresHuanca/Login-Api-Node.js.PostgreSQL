@@ -5,6 +5,7 @@
     const url = ( window.location.hostname.includes('localhost') )
                 ? 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/auth/'
                 : 'http://localhost:8080/api/auth/';
+                
 
    miFormulario.addEventListener( 'submit', event => {
         // evita el refersh del navegador
