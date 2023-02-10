@@ -18,7 +18,7 @@
             }
         }
 
-        console.log(formData);
+        // console.log(formData);
         
         fetch( url + 'login', { 
             method: 'POST',
@@ -27,13 +27,16 @@
             
         })
         .then( resp => resp.json())
-        .then( ({errors, token}) => {
-
+        .then( ({errors, token, msg}) => {
+            // Mostrar los errores del backend
             if( errors ) {
                 return console.error( errors )
             }
+            if( msg ) {
+                return console.error( msg )
+            }
             localStorage.setItem( 'token', token );
-            console.log(token );
+            // console.log(token );
             // A vez autenticado - redireccionar
             window.location = 'ingresoExitoso.html';
 
