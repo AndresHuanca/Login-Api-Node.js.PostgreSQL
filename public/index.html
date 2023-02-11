@@ -95,20 +95,30 @@
                 </div>
                 
                 <form id="formLogin">
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input  type="email" name="email"  class="form-control" />
-                  <label class="form-label" for="loginName">Email</label>
-                </div>
+
+                  
+
+                  <!-- Email input -->
+                  <div class="form-outline mb-4">
+                    <input  type="email" name="email"  class="form-control" required/>
+                    <label class="form-label" for="loginName" >Email</label>
+                  </div>
           
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                  <input type="password" name="password"  class="form-control" />
-                  <label class="form-label" for="loginPassword">Contraseña</label>
-                </div>
+                  <!-- Password input -->
+                  <div class="form-outline mb-4">
+                    <input type="password" name="password"  class="form-control" required/>
+                    <label class="form-label" for="loginPassword">Contraseña</label>
+                  </div>
+
+                  <!-- Div Message Error -->
+                  
+                  <div id = "messageError">
+                  </div>
+                  
+                  <!-- Div Message Error -->
               
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
                 </form>
 
                 <!-- 2 column grid layout -->

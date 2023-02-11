@@ -5,6 +5,10 @@ const url = ( window.location.hostname.includes('localhost') )
 
 let usuario;
 
+// Validaciones
+
+
+
 // Validar el token del localStorage
 const validarJWT = async() => {
     // extrayendo token
