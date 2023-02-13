@@ -22,12 +22,12 @@
         google.accounts.id.revoke( localStorage.getItem('email'), done => {
             localStorage.clear();
             location.reload();
-            window.location = 'index.html';
+            window.location = '../../../index.html';
         });
     }
 </script>    
 <!-- js Login -->
-<script src="./js/login.js" ></script>
+<script src="../../js/users/login.js" ></script>
 
 <!-- auth google -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>

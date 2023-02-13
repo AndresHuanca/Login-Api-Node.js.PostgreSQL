@@ -4,7 +4,7 @@ const url = ( window.location.hostname.includes('localhost') )
             ? 'http://localhost:8080/api/auth/'
             : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/auth/';
 
-let usuario;
+let usuario = null;
 
 
 // Validar el token del localStorage
@@ -15,7 +15,8 @@ const validarJWT = async() => {
     // Validación si viene token
     if( token <= 9 ) {
         // retornar al index.html
-        window.location = 'index.html';
+        // window.location = '../../../index.html';
+        console.log(token);
         throw new Error('Token no valido');
     }
 
@@ -24,7 +25,7 @@ const validarJWT = async() => {
     // y se adigna el token al localStorage
     const resp = await fetch( url, { 
         headers: { 'x-token': token }
-    })
+    });
     // console.log(token);
     
     //Obtengo toda la información del route y controller auth 
@@ -38,11 +39,11 @@ const validarJWT = async() => {
     usuario = userDb;
     // Title in page
     document.title = usuario.nombre;
+    // console.log( usuario )
 }
 
 // login ejecutandose
 const main = async() => {
-
     // Validar JWT
     await validarJWT();
 };

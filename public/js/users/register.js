@@ -50,7 +50,7 @@
             }
             alert("Usuario Creado");
             // A vez autenticado - redireccionar
-            window.location = 'ingresoExitoso.html';
+            // window.location = 'ingresoExitoso.html';
 
         })
         .catch( err => {

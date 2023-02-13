@@ -14,7 +14,7 @@
     .then( resp => resp.json())
     .then( ({usuarios}) => {
     // Viene los usuarios 
-    console.log(usuarios);
+    // console.log(usuarios);
     getUsersAll(usuarios);
 
     })
@@ -38,9 +38,9 @@
                 <hr>
                 `;
                 document.getElementById('getUsers').innerHTML = message;
-                console.log(nombre);
-                console.log(email);
-                console.log(message[index]);
+                // console.log(nombre);
+                // console.log(email);
+                // console.log(message[index]);
 
             }
             

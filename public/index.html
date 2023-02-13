@@ -24,8 +24,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
     rel="stylesheet"
     />
-    <!-- gsi -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
   
 </head>
 <body >
@@ -255,10 +253,17 @@
 <!-- AUTH GOOGLE -->
 <script>
   function handleCredentialResponse(response) {
-    
+    // Token of google
     const body = { id_token: response.credential }
+    // console.log(response.credential);
 
-    fetch('https://portafolio-andres-huanca-namuche-production.up.railway.app/api/auth/google', {
+    // url dinamic
+    const url = ( window.location.hostname.includes('localhost') )
+            ? 'http://localhost:8080/api/auth/google'
+            : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/google/';
+
+
+    fetch(url, {
       method: 'POST',
       headers: {
           'Content-type': 'application/JSON'
@@ -266,10 +271,11 @@
       body:JSON.stringify(body)
     })
           .then( resp => resp.json() )
-          .then( resp => {
+          .then( ( {token} ) => {
             // Guardo en localstorage
-            localStorage.setItem('email', resp.usuario.email)
-            window.location = 'ingresoExitoso.html';
+            // localStorage.setItem('email', resp.usuario.email)
+            localStorage.setItem('token', token);
+            window.location = './views/users/ingresoExitoso.html';
           })
           .catch( console.warn );
 
@@ -284,13 +290,19 @@
 ></script>
 
 <!-- js auth Manual -->
-<script src="./js/auth.js" ></script>
+<script src="./js/users/auth.js" ></script>
 
 <!-- js register Manual -->
-<script src="./js/register.js" ></script>
+<script src="./js/users/register.js" ></script>
 
 <!-- js getUser -->
-<script src="./js/getUsers.js" ></script>
+<script src="./js/users/getUsers.js" ></script>
+
+<!-- gsi -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<!-- js login -->
+<!-- <script src="./js/users/login.js" ></script> -->
 
 <!--  -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
