@@ -12,10 +12,10 @@ const validarJWT = async() => {
     // extrayendo token
     const token = localStorage.getItem('token' || '' );
 
-    // Validación si viene token
+    // Validación si viene token - Mejorar
     if( token <= 9 ) {
         // retornar al index.html
-        // window.location = '../../../index.html';
+        window.location = '../../../index.html';
         console.log(token);
         throw new Error('Token no valido');
     }
@@ -40,7 +40,79 @@ const validarJWT = async() => {
     // Title in page
     document.title = usuario.nombre;
     // console.log( usuario )
+
+    displayUserDates(userDb);
 }
+
+//Display users dates
+const displayUserDates = ({nombre, apellidos, email, img }) => {
+    let img01 = '';
+    let nombre01 = '';
+    let apellidos01 = '';
+    let email01 = '';
+
+    // Nombre
+    nombre01 = `
+        <h5 class="card-title">Nombre :</h5>
+        <p class="card-text">${nombre}</p>
+        <hr>
+    `
+    document.getElementById('nombre').innerHTML = nombre01;
+
+    // Apellidos
+    apellidos01 = `
+        <h5 class="card-title">Apellidos :</h5>
+        <p class="card-text">${apellidos}</p>
+        <hr>
+    `
+    document.getElementById('apellidos').innerHTML = apellidos01;
+
+    // Apellidos
+    email01 = `
+        <h5 class="card-title">Email :</h5>
+        <p class="card-text">${email}</p>
+        <hr>
+    `
+    document.getElementById('email').innerHTML = email01;
+    
+    // Img
+    img01 = `
+    <img src="${img}"  alt="" class="avatar">
+    `
+    // Validación de img null
+    if(img===null){
+        const imgMoment = '../../../assets/hjspg9m7n6a51.jpg'
+        document.getElementById('img').innerHTML = imgMoment;
+    }else{
+        document.getElementById('img').innerHTML = img01;
+    }
+
+    // console.log(nombre);
+
+}
+
+function getUsersAll(value=[]) {
+        let  message = '';
+        let nombre = [];
+        let email = [];
+
+        for (let index = 0; index < value.length; index++) {
+                nombre = value[index].nombre;
+                email = value[index].email;
+                
+                message += `
+                <p class="card-text"> Usuario: ${nombre} </p>
+                <p class="card-text"> Email: ${email} </p>
+                <hr>
+                `;
+                document.getElementById('getUsers').innerHTML = message;
+                // console.log(nombre);
+                // console.log(email);
+                // console.log(message[index]);
+
+            }
+            
+    }
 
 // login ejecutandose
 const main = async() => {
