@@ -1,0 +1,76 @@
+.body {
+    background-color: #e5e5ed;
+}
+
+/* Logo Image */
+.avatar{
+    border-radius: 100%;
+    width: 70px;
+    height: 70px; 
+    margin-left: 1%;
+}
+
+/* searcForm */
+.searchForm{
+    margin-left: 1%;
+}
+.searchButton{
+    margin-left: 2%;
+
+}
+.buttonSearch{
+    text-align: center;
+    width: 40%;
+    height: 40%; 
+}
+
+/* items navar */
+.items {
+    float:right;
+}
+
+.itemsProfile{
+    width: 95%;
+    height: 95%; 
+}
+
+/* Aside */
+.asideRight {
+    width: 20%;
+    padding-left: 15px;
+    margin-left: 0px;
+    float: right;
+    font-style: italic;
+    background-color: rgb(201, 92, 92);
+  }
+
+.asideLeft {
+    width: 20%;
+    padding-left: 15px;
+    margin-left: 0px;
+    float: left;
+    font-style: italic;
+    background-color: rgb(201, 92, 92);
+  }
+
+/*Main  */
+main {
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 1%;
+    background-color: lightgray;
+  }
+  
+  main > h1, p, .browser {
+    margin: 10px;
+    padding: 5px;
+  }
+  
+  .browser {
+    background: white;
+  }
+  
+  .browser > h2, p {
+    margin: 4px;
+    font-size: 90%;
+  }

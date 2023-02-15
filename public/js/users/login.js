@@ -15,20 +15,23 @@ const validarJWT = async() => {
     // extrayendo token
     const token = localStorage.getItem('token' || '' );
 
-    // Validación si viene token - Mejorar
-    if( token <= 9 ) {
-        // retornar al index.html
-        window.location = '../../../index.html';
-        console.log(token);
-        throw new Error('Token no valido');
-    }
-
     // Url of production or  developer
     // Extraigo en token del backen de la route auth/
     // y se adigna el token al localStorage
     const resp = await fetch( url, { 
         headers: { 'x-token': token }
     });
+
+    console.log(resp.status);
+
+    // Validación de estancia en los html
+    if( resp.status >= 300 ){
+        window.location = '../../../index.html';
+        console.log(token);
+        throw new Error('Token no valido');
+    }
+    
+
     // console.log(token);
     
     //Obtengo toda la información del route y controller auth 

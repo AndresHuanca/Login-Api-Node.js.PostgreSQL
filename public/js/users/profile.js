@@ -52,7 +52,6 @@ const displayUserDates = ({ nombre, apellidos, email, img }) => {
 }
 
 
-
 // Update User
 // Function update
 const updateUserDates = ({ nombre, apellidos, email, id_usuario }) => {
