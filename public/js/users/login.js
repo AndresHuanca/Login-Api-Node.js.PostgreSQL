@@ -22,7 +22,7 @@ const validarJWT = async() => {
         headers: { 'x-token': token }
     });
 
-    console.log(resp.status);
+    // console.log(resp.status);
 
     // Validación de estancia en los html
     if( resp.status >= 300 ){

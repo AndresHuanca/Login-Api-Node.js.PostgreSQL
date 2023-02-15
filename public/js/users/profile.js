@@ -75,7 +75,7 @@ const updateUserDates = ({ nombre, apellidos, email, id_usuario }) => {
         }
     
         let codusuario = id_usuario;
-        console.log(codusuario);
+        // console.log(codusuario);
         
         fetch( url + `${codusuario}`, { 
             method: 'PATCH',
@@ -84,19 +84,19 @@ const updateUserDates = ({ nombre, apellidos, email, id_usuario }) => {
             
         })
         .then( resp => resp.json())
-        .then( (RESP) => {
+        .then( ({errors,msg}) => {
             // Mostrar los errores del backend
-            // if( errors ) {        
-            //     displayAlert(errors);
-            //     return console.error( errors );
-            // }
-            // if( msg ) {
-            //     displayAlert(msg);
-            //     return console.error( msg );
-            // }
+            if( errors ) {        
+                displayAlert(errors);
+                return console.error( errors );
+            }
+            if( msg ) {
+                displayAlert(msg);
+                return console.error( msg );
+            }
     
-            console.log(RESP);
-            // A vez autenticado - redireccionar
+            // console.log(RESP=erros-msg);
+            // A vez autenticado - recargar la pagina
             window.location = '/views/users/ingresoExitoso.html';
     
         })
@@ -114,13 +114,13 @@ function displayAlert(value) {
             message = `
                 <div class="alert alert-danger" role="alert">
                     <div class="text-center ">
-                        ${value}
+                        ${value[0].msg}
                     </div>
                 </div> 
                 `;
             document.getElementById('messageError').innerHTML = message;
     
-        console.log(value);  
+        // console.log(value[0].msg);  
 
 }
 
