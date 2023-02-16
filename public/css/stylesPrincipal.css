@@ -9,6 +9,13 @@
     height: 70px; 
     margin-left: 1%;
 }
+.avatarManzana{
+    border-radius: 40%;
+    width: 20%;
+    height: 20%; 
+    margin-left: 1%;
+
+}
 
 /* searcForm */
 .searchForm{

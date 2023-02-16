@@ -6,6 +6,41 @@
     background-attachment: fixed;
     background-size: cover;
 } */
+.body {
+    background-color: #e5e5ed;
+}
+
+/* Logo Image */
+.avatarNavbar{
+    border-radius: 100%;
+    width: 70px;
+    height: 70px; 
+    margin-left: 1%;
+}
+
+/* searcForm */
+.searchForm{
+    margin-left: 1%;
+}
+.searchButton{
+    margin-left: 2%;
+
+}
+.buttonSearch{
+    text-align: center;
+    width: 40%;
+    height: 40%; 
+}
+
+/* items navar */
+.items {
+    float:right;
+}
+
+.itemsProfile{
+    width: 95%;
+    height: 95%; 
+}
 
 /* CENTRAR DIV PADRE E HIJO */
 .divCenter01{
@@ -18,22 +53,6 @@
 }
 /* CENTRAR DIV PADRE E HIJO */
 
-body{
-    background-color: rgb(245, 245, 245)}
-    .card .top-design{
-        width: 268px;
-        transform: rotate(-38deg);
-        position: relative;
-        top: -45px;
-        left: -49px;
-        height: 101px;
-        background: rgba(7, 0, 196, 0.2);
-        border-top: 21px solid rgba(13, 2, 175, 0.2);
-        border-bottom: 40px solid rgba(29, 23, 189, 0.2);
-        margin-left: -30px;
-        margin-right: -75px
-    }
-    
     .card{
         overflow: hidden;
         width: 500px;
@@ -55,7 +74,7 @@ body{
         height: 109px
     }
 
-    .avatar{
+    .avatarProfile{
         border-radius: 100%;
         width: 125px;
         height: 125px
@@ -119,8 +138,8 @@ body{
     
     .link-b .h4{
         margin: 0
-    }
-    
+    } 
+         
     .user-info{
         position: relative;
         top: 20px

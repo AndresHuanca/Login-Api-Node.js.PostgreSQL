@@ -37,7 +37,7 @@ const displayUserDates = ({ nombre, apellidos, email, img }) => {
     
     // Img
     img01 = `
-    <img src="${img}"  alt="" class="avatar">
+    <img src="${img}"  alt="" class="avatarProfile">
     `
     // Validación de img null
     if(img===null){

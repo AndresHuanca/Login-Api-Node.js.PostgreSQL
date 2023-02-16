@@ -17,14 +17,12 @@
     <!-- Bootstrap movil responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
-  <body class="body">
-
-    <!-- Navbar -->
+  <body class="body" >
+    <!-- Navbar All -->
     <nav class="navbar navbar-expand-sm bg-body-tertiary">
       <div class="container-fluid">
         <div class="container">
           <div class="row align-items-center">
-            <!-- Logo -->
             <div class="col-4 col-sm-2 col-md-2 col-lg-2 col-xl-1">
               <img
                 src="../../assets/apple-logo-colorful-outline-black-background-ipad-hd-1179x2556-789.png"
@@ -33,8 +31,7 @@
               />
             </div>
             <div class="col-5 col-sm-5 col-md-4 col-lg-3 col-xl-3">
-            <!--collapse  -->
-            <!-- search -->
+ 
             <button
             class="navbar-toggler"
             type="button"
@@ -67,7 +64,6 @@
             </form>
           </div>
         </div>
-              <!-- atributes -->
             <div class="col-3 col-sm-5 col-md-6 col-lg-7 col-xl-8 ">
               <div class="items" >
 
@@ -85,9 +81,9 @@
                         />
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">Falta Implementar</a></li>
+                        <li><a class="dropdown-item" href="#">Falta Implementar</a></li>
+                        <li><a class="dropdown-item" href="#">Falta Implementar</a></li>
                       </ul>
                     </div>
   
@@ -104,9 +100,9 @@
                         />
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">Falta Implementar</a></li>
+                        <li><a class="dropdown-item" href="#">Falta Implementar</a></li>
+                        <li><a class="dropdown-item" href="#">Falta Implementar</a></li>
                       </ul>
                     </div>
                   </li>
@@ -124,9 +120,9 @@
                         />
                       </a>
                       <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">Falta Implementar</a></li>
+                        <li><a class="dropdown-item" href="#">Falta Implementar</a></li>
+                        <li><a class="dropdown-item" href="#">Falta Implementar</a></li>
                       </ul>
                     </div>
                   </li>
@@ -145,9 +141,10 @@
                         />
                       </a>
                       <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="principal.html">Inicio</a></li>
                         <li><a class="dropdown-item" href="ingresoExitoso.html">Mi Perfil</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">Configuración "Falta"</a></li>
+                        <li><a class="dropdown-item" id="cerrarSesion" href="#">Cerrar Sesión</a></li>
                       </ul>
                     </div>
                   </li>
@@ -160,7 +157,7 @@
         </div>
       </div>
     </nav>
-    <!--Navbar -->
+        <!-- Navbar All -->
 
     <!-- Aside -->
     <aside class="asideLeft">
@@ -176,7 +173,8 @@
 
     <!-- Main -->
     <main>
-      <h1>Most Popular Browsers</h1>
+      <h1 class="text-center" >Aprendiendo con manzanitas</h1>
+      <img src="../../assets/manzanita.png" class="img-fluid mx-auto d-block avatarManzana" alt="...">
       <p>Chrome, Firefox, and Edge are the most used browsers today.</p>
       <article class="browser">
         <h2>Google Chrome</h2>
@@ -194,10 +192,26 @@
     
     <!-- Main -->
 
+<!-- Auth google button  -->
+    <script>
+      const button = document.getElementById("cerrarSesion");
+      button.onclick = () => {
+          console.log(google.accounts.id); 
+          google.accounts.id.disableAutoSelect();
+  
+          // Borrar información del localStorage
+          google.accounts.id.revoke( localStorage.getItem('email'), done => {
+              localStorage.clear();
+              location.reload();
+              window.location = '../../../index.html';
+          });
+      }
+    </script>
+
+
     <!-- js Login -->
     <script src="../../js/users/login.js" type="module" ></script>
     <!-- auth google -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
     <!--bootstrap pooper  -->
@@ -207,10 +221,11 @@
       crossorigin="anonymous"
     ></script>
     <!--bootstrap Js  -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-      crossorigin="anonymous"
-    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" 
+    crossorigin="anonymous">
+    </script>
+
   </body>
 </html>
