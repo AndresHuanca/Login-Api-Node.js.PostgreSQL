@@ -2,10 +2,16 @@ import {
         displayUserDates,
         updateUserDates } from "./profile.js";
 // Login Google
-// url para local y produccion
+
+// validarJWT url para local y produccion 
 const url = ( window.location.hostname.includes('localhost') )
             ? 'http://localhost:8080/api/auth/'
             : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/auth/';
+
+// validarAdmin url para local y produccion 
+const urlAdmin = ( window.location.hostname.includes('localhost') )
+            ? 'http://localhost:8080/api/usuarios/'
+            : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/usuarios/';
 
 let usuario = null;
 
@@ -28,8 +34,7 @@ const validarJWT = async() => {
         window.location = '../../../index.html';
         console.log(token);
         throw new Error('Token no valido');
-    }
-    
+    }    
     
     //Obtengo toda la información del route y controller auth 
     // const datosUserAuth = await resp.json();
@@ -42,19 +47,60 @@ const validarJWT = async() => {
     usuario = userDb;
     // Title in page
     document.title = usuario.nombre;
-    // console.log( userDb )
     
+
+    // Validar Admin
+    validarAdmin(userDb.id_usuario);
+
     // Show navbar
     // showNavbarAll();
+    // console.log(showNavbarAll());
+
+    // Show properties Admin
+    // propertiesAdmin();
     
     //Llamo el profile.js
     displayUserDates(userDb);
 
     // Update user
     updateUserDates(userDb);
-    console.log(showNavbarAll());
 
 }
+
+// Validar Admin
+const validarAdmin = async(user) => {
+
+    const resp = await fetch( urlAdmin, { 
+    });
+
+    //Obtengo toda la información del route y controller auth 
+    const  {usuarios}  = await resp.json();
+
+    // console.log(userDb.id_usuario);
+    // Search user Admin
+    for (let index = 0; index < usuarios.length; index++) {
+
+        //User Admin
+        if( user == usuarios[index].id_usuario ){
+            if ( usuarios[index].rols.rol === 'ADMIN-ROL'  ) {
+                // View for Admin
+                let itemAdminAccount = `
+                <li><a class="dropdown-item" href="adminAccounts.html">Administrar Cuentas</a></li>
+                `
+                document.getElementById('adminAdmin').innerHTML = itemAdminAccount;
+                // console.log(usuarios[index].rols.rol);
+            };
+            // console.log(user);
+            // console.log(usuarios[index].id_usuario);
+        }
+    }
+    
+}
+
+// If Admins
+// const propertiesAdmin =  () => {
+
+// }
 
 // Example of navbar global
 // Show navbar all
