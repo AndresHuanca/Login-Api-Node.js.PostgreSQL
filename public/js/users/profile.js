@@ -5,6 +5,10 @@ const url = ( window.location.hostname.includes('localhost') )
             ? 'http://localhost:8080/api/usuarios/'
             : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/usuarios/';
 
+const urlPhoto = ( window.location.hostname.includes('localhost') )
+            ? 'http://localhost:8080/api/uploads/usuarios/'
+            : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/uploads/usuarios/';          
+
 const displayUserDates = ({ nombre, apellidos, email, img }) => {
     let img01 = '';
     let nombre01 = '';
@@ -37,11 +41,11 @@ const displayUserDates = ({ nombre, apellidos, email, img }) => {
     
     // Img
     img01 = `
-    <img src="${img}"  alt="" class="avatarProfile">
+        <img src="${img}"  alt="" class="avatarProfile"/>                        
     `
     // Validación de img null
     if(img===null){
-        const imgMoment = '../../../assets/hjspg9m7n6a51.jpg'
+        const imgMoment = `<img src="https://cdn.bhdw.net/im/majestic-astronaut-standing-in-front-of-moon-and-earth-wallpaper-91734_w635.webp"  alt="" class="avatarProfile">`
         document.getElementById('img').innerHTML = imgMoment;
     }else{
         document.getElementById('img').innerHTML = img01;
@@ -124,10 +128,59 @@ function displayAlert(value) {
 
 }
 
+// Update User
+// Function update
+const updateUserPhoto = ({ nombre, apellidos, email, id_usuario }) => {
 
+const fileInput = document.getElementById('file-input');
+const submitButton = document.getElementById('submit-button');
+const loadingIndicator = document.querySelector('#loading-indicator');
+
+
+submitButton.addEventListener('click', () => {
+  const file = fileInput.files[0];
+  // Deshabilita el botón y muestra el indicador de carga
+  submitButton.disabled = true;
+  loadingIndicator.style.display = 'block';
+
+  // Espera 2 segundos (2000 milisegundos) y luego habilita el botón y oculta el indicador de carga
+  setTimeout(() => {
+    submitButton.disabled = false;
+    loadingIndicator.style.display = 'none';
+  }, 1500);
+
+  const formData = new FormData();
+  formData.append('archivo', file);
+    // Peticion para actualizar photo 
+  fetch(urlPhoto+id_usuario, {
+    method: 'PUT',
+    body: formData
+  })
+  .then(response => {
+    
+    if (!response.ok) {
+        throw new Error('Error al actualizar la imagen');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Imagen actualizada con éxito');
+    location.reload();
+    
+  })
+  .catch(error => {
+    console.error('Error al actualizar la imagen:', error);
+  });
+
+});
+
+        
+}
 
 
 // Exports
 export {
         displayUserDates,
-        updateUserDates };
+        updateUserDates, 
+        updateUserPhoto
+    };
