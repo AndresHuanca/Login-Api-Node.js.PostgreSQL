@@ -79,7 +79,12 @@
         margin-left: 50px;
         height: 109px
     }
-
+    .avatar{
+        border-radius: 100%;
+        width: 70px;
+        height: 70px; 
+        margin-left: 1%;
+    }
     .avatarProfile{
         border-radius: 100%;
         width: 125px;
