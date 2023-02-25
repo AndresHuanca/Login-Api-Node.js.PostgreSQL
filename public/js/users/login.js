@@ -51,14 +51,11 @@ const validarJWT = async() => {
     // Title in page
     document.title = usuario.nombre;
     
-    
     // Validar Admin
     validarAdmin(userDb);
-    
-    
+        
     // Update photo user 
     updateUserPhoto(userDb);
-
 
     //Llamo el profile.js
     displayUserDates(userDb);

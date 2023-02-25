@@ -151,6 +151,11 @@ submitButton.addEventListener('click', () => {
 
   const formData = new FormData();
   formData.append('archivo', file);
+
+  let codusuario = id_usuario;
+  console.log(codusuario);
+  console.log(urlPhoto+id_usuario);
+
     // Peticion para actualizar photo 
   fetch(urlPhoto+id_usuario, {
     method: 'PUT',
