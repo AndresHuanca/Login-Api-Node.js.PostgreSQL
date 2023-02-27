@@ -54,8 +54,7 @@ const getUsers = (value=[], numberUsers) => {
     let email1 = [];
     let apellidos1 = [];
     let img1 = [];  
-    console.log(value);
-    console.log(numberUsers);
+
 
     for (let index = 0; index < value.length; index++) {
         nombre1 = value[index].nombre;
@@ -83,13 +82,19 @@ const getUsers = (value=[], numberUsers) => {
         `;
 
         document.getElementById('showUser').innerHTML = message;
-
-    }
         
-        // Sending numbers users
-        numberUsers = `<p>Total : ${numberUsers}</p>`
-        document.getElementById('totalUsers').innerHTML = numberUsers;
-
+        
+    }
+    
+    // Recargar
+    if(numberUsers == 0){
+        message=``;
+        document.getElementById('showUser').innerHTML = message;
+        console.log(message);
+    }
+    // Sending numbers users
+    numberUsers = `<p>Total : ${numberUsers}</p>`
+    document.getElementById('totalUsers').innerHTML = numberUsers;
 }
 
 const mainSearch = async () => {
