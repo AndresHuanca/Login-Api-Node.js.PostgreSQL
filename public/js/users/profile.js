@@ -3,11 +3,11 @@
 // url para local y produccion
 const url = ( window.location.hostname.includes('localhost') )
             ? 'http://localhost:8080/api/usuarios/'
-            : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/usuarios/';
+            : 'https://backend-nodejs-postgresql.up.railway.app/api/usuarios/';
 
 const urlPhoto = ( window.location.hostname.includes('localhost') )
             ? 'http://localhost:8080/api/uploads/usuarios/'
-            : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/uploads/usuarios/';          
+            : 'https://backend-nodejs-postgresql.up.railway.app/api/uploads/usuarios/';          
 
 const displayUserDates = ({ nombre, apellidos, email, img }) => {
     let img01 = '';

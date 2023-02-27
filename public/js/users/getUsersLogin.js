@@ -5,7 +5,7 @@
 
     const url02 = ( window.location.hostname.includes('localhost') )
                 ? 'http://localhost:8080/api/usuarios/'
-                : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/usuarios/';
+                : 'https://backend-nodejs-postgresql.up.railway.app/api/usuarios/';
                 
 
     fetch( url02 , { 

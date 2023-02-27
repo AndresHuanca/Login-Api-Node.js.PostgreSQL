@@ -9,12 +9,12 @@ import {
 // validarJWT url para local y produccion 
 const url = ( window.location.hostname.includes('localhost') )
             ? 'http://localhost:8080/api/auth/'
-            : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/auth/';
+            : 'https://backend-nodejs-postgresql.up.railway.app/api/auth/';
 
 // validarAdmin url para local y produccion 
 const urlAdmin = ( window.location.hostname.includes('localhost') )
             ? 'http://localhost:8080/api/usuarios/'
-            : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/usuarios/';
+            : 'https://backend-nodejs-postgresql.up.railway.app/api/usuarios/';
 
 let usuario = null;
 
