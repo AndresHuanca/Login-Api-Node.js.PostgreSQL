@@ -61,8 +61,9 @@ const validarJWT = async() => {
     displayUserDates(userDb);
     
     // Update user
-    updateUserDates(userDb); 
-
+    updateUserDates(userDb);
+    console.log(token1);
+    
 }
 
 // Validar Admin
