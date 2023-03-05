@@ -19,44 +19,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body class="body">
-
-    <form>
-      <input type="file" name="archivo" id="imageInput">
-      <button type="button" name="archivo" onclick="uploadImage()">Upload</button>
-    </form>
-
-    <div id="loading">
-      <img src="./assets/1495.gif" alt="Loading...">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="card shadow-lg border-0">
+            <img
+              src="https://via.placeholder.com/400x400"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title mb-3">Nombre del producto</h5>
+              <p class="card-text mb-3">Descripción del producto</p>
+              <p class="card-text mb-3"><strong>Precio:</strong> $99.99</p>
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">
+                  Add to Cart
+                </button>
+                <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Buy Now</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    
-   
-<script>
-  function uploadImage() {
-  const fileInput = document.getElementById('imageInput');
-  const file = fileInput.files[0];
-  const archivo = new FormData();
-  archivo.append('archivo', file);
-  console.log(archivo)
+    <!-- card -->
+    <div class="container">
+      <div class="card shadow-lg border-0">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Productos destacados</h5>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="col">
+              <div class="card h-100">
+                <img
+                  src="https://via.placeholder.com/400x400"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title mb-3">Producto 1</h5>
+                  <p class="card-text mb-3">Descripción del producto 1</p>
+                  <p class="card-text mb-3"><strong>Precio:</strong> $19.99</p>
+                  <a href="#" class="btn btn-primary">Comprar ahora</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img
+                  src="https://via.placeholder.com/400x400"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title mb-3">Producto 2</h5>
+                  <p class="card-text mb-3">Descripción del producto 2</p>
+                  <p class="card-text mb-3"><strong>Precio:</strong> $29.99</p>
+                  <a href="#" class="btn btn-primary">Comprar ahora</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img
+                  src="https://via.placeholder.com/400x400"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title mb-3">Producto 3</h5>
+                  <p class="card-text mb-3">Descripción del producto 3</p>
+                  <p class="card-text mb-3"><strong>Precio:</strong> $39.99</p>
+                  <a href="#" class="btn btn-primary">Comprar ahora</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img
+                  src="https://via.placeholder.com/400x400"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title mb-3">Producto 3</h5>
+                  <p class="card-text mb-3">Descripción del producto 3</p>
+                  <p class="card-text mb-3"><strong>Precio:</strong> $39.99</p>
+                  <a href="#" class="btn btn-primary">Comprar ahora</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img
+                  src="https://via.placeholder.com/400x400"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title mb-3">Producto 3</h5>
+                  <p class="card-text mb-3">Descripción del producto 3</p>
+                  <p class="card-text mb-3"><strong>Precio:</strong> $39.99</p>
+                  <a href="#" class="btn btn-primary">Comprar ahora</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  fetch('http://localhost:8080/api/uploads/usuarios/630467f2-7d36-4dca-ab91-021a9681eff5', {
-    method: 'PUT',
-    body: archivo
-  })
-  .then(response => {
-  //   loading.style.display = 'block';
-  // loading.style.visibility = 'visible';
-    console.log('Image uploaded successfully');
-    console.log(response)
-  })
-  .catch(error => {
-    loading.style.display = 'none';
-      loading.style.visibility = 'hidden';
-    console.error('Error uploading image:', error);
-  });
-}
-
-</script>
-
+    <!-- card -->
 
     <!--bootstrap pooper  -->
     <script

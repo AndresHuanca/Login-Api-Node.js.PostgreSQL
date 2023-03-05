@@ -30,12 +30,15 @@
         .then( resp => resp.json())
         .then( ({errors, token, msg}) => {
             // Mostrar los errores del backend
+            console.log( errors );
+
             if( errors ) {        
                 displayAlert(errors);
                 return console.error( errors );
             }
             if( msg ) {
                 displayAlert(msg);
+                console.log( errors );
                 return console.error( msg );
             }
 

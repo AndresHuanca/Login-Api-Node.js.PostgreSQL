@@ -62,7 +62,7 @@ const validarJWT = async() => {
     
     // Update user
     updateUserDates(userDb);
-    console.log(token1);
+    // console.log(token1);
     
 }
 

@@ -9,7 +9,7 @@ const urlPhoto = ( window.location.hostname.includes('localhost') )
             ? 'http://localhost:8080/api/uploads/usuarios/'
             : 'https://backend-nodejs-postgresql.up.railway.app/api/uploads/usuarios/';          
 
-const displayUserDates = ({ nombre, apellidos, email, img }) => {
+const displayUserDates = ({ nombre, apellido, correo, img }) => {
     let img01 = '';
     let nombre01 = '';
     let apellidos01 = '';
@@ -26,7 +26,7 @@ const displayUserDates = ({ nombre, apellidos, email, img }) => {
     // Apellidos
     apellidos01 = `
         <h5 class="card-title">Apellidos :</h5>
-        <p class="card-text">${apellidos}</p>
+        <p class="card-text">${apellido}</p>
         <hr>
     `
     document.getElementById('apellidos').innerHTML = apellidos01;
@@ -34,7 +34,7 @@ const displayUserDates = ({ nombre, apellidos, email, img }) => {
     // Apellidos
     email01 = `
         <h5 class="card-title">Email :</h5>
-        <p class="card-text">${email}</p>
+        <p class="card-text">${correo}</p>
         <hr>
     `
     document.getElementById('email').innerHTML = email01;

@@ -12,6 +12,27 @@ const urlFaculties = window.location.hostname.includes("localhost")
 const searchFaculties = document.querySelector("#formFaculties");
 
 const showUserDate = async () => {
+  // Show Users All 
+  try {
+      //Obtengo toda la información del route y controller buscar
+      const searchUser = await fetch(urlUser + `@`, {
+        method: "GET",
+      });
+    
+    // Sending json   
+      const { results } = await searchUser.json();
+      let numberUsers = results.count;
+      let numberRows = results.rows;
+
+    //  Sending searchs users    
+      getUsers(numberRows,numberUsers);
+
+    } catch (error) {
+      console.error(error);
+    }
+  // Show Users All
+  
+  // Search Users
   // variables of form Search User
   const searchUsers = document.querySelector("#formSearch");
 
@@ -27,6 +48,7 @@ const showUserDate = async () => {
       }
     }
     const search = formData.nombre;
+    console.log(search);
 
     try {
       //Obtengo toda la información del route y controller buscar
@@ -58,27 +80,33 @@ const getUsers = (value=[], numberUsers) => {
 
     for (let index = 0; index < value.length; index++) {
         nombre1 = value[index].nombre;
-        apellidos1 = value[index].apellidos;
-        email1 = value[index].email;
+        apellidos1 = value[index].apellido;
+        email1 = value[index].correo;
         img1 = value[index].id_usuario;
 
         message += `
-        <div class="card cardUser">
-        <div class="card-header ">
-          <h5>Usuario : ${index + 1}</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <div class="nombre">
-              <li class="list-group-item" name="${index+1}" >Nombre : ${nombre1}</li>
+        <div class="col">
+          <div class="card >
             </div>
-            <div class="apellidos">
-              <li class="list-group-item" name="${index+2}" >Apellidos : ${apellidos1}</li>
+            <div class="card cardUser">
+            <div class="card-header ">
+              <h5>Usuario : ${index + 1}</h5>
             </div>
-            <div class="email">
-              <li class="list-group-item" name="${index+3}">Email : ${email1}</li>
-            </div>
-        </ul>
-      </div>
+            <ul class="list-group list-group-flush">
+                <div class="nombre">
+                  <li class="list-group-item" name="${index+1}" >Nombre : ${nombre1}</li>
+                </div>
+                <div class="apellidos">
+                  <li class="list-group-item" name="${index+2}" >Apellidos : ${apellidos1}</li>
+                </div>
+                <div class="email">
+                  <li class="list-group-item" name="${index+3}">Email : ${email1}</li>
+                </div>
+            </ul>
+          </div>
+          <div class="my-2"></div>  
+          </div>
+        
         `;
 
         document.getElementById('showUser').innerHTML = message;
