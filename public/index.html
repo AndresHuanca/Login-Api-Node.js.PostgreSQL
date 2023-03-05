@@ -141,7 +141,7 @@
                     
                     <div class="card-header">Login de Prueba</div>
                     <div class="card-body text-secondary">
-                      <p class="card-text"> Email: prueba01@upeu.edu.pe Contraseña: 123456*</p>
+                      <p class="card-text"> Email: prueba01@upeu.edu.pe Contraseña: 123456</p>
                       <p class="card-text"> Email: prueba02@upeu.edu.pe Contraseña: 1234567*</p>
                     </div>
 
@@ -188,13 +188,13 @@
           
                 <!-- Username input -->
                 <div class="form-outline mb-4">
-                  <input type="text" id="registerUsername" class="form-control" name="apellidos" required/>
+                  <input type="text" id="registerUsername" class="form-control" name="apellido" required/>
                   <label class="form-label" for="registerUsername">Apellidos</label>
                 </div>
           
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input type="email" id="registerEmail" class="form-control" name="email" required/>
+                  <input type="email" id="registerEmail" class="form-control" name="correo" required/>
                   <label class="form-label" for="registerEmail">Email</label>
                 </div>
           
@@ -247,14 +247,14 @@
 <!-- AUTH GOOGLE -->
 <script>
   function handleCredentialResponse(response) {
-    // Token of google
+    // Token of googl
     const body = { id_token: response.credential }
     // console.log(response.credential);
 
     // url dinamic
     const url = ( window.location.hostname.includes('localhost') )
             ? 'http://localhost:8080/api/auth/google'
-            : 'https://portafolio-andres-huanca-namuche-production.up.railway.app/api/auth/google';
+            : 'https://portafolio-andres-huanca-namuche.up.railway.app/api/auth/google';
 
 
     fetch(url, {
