@@ -72,7 +72,6 @@
                           class="img-fluid img-thumbnail itemsProfile"
                         />
                       </a>
-                    
                     </div>
                   </li>
                   <li class="nav-item">
@@ -100,7 +99,11 @@
                             >Mi Perfil</a
                           >
                         </li>
-                        <li><a class="dropdown-item" href="registeredUser.html">Usuarios Registrados</a></li>
+                        <li>
+                          <a class="dropdown-item" href="registeredUser.html"
+                            >Usuarios Registrados</a
+                          >
+                        </li>
 
                         <li>
                           <a class="dropdown-item" id="cerrarSesion" href="#"
@@ -127,8 +130,11 @@
           <!-- Title -->
           <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <h3 class="text-center fs-">
-              <strong><p class="text-primary">Tienda Virtual <img src="../../assets/shopping-store.png" alt=""></p></strong>
-              
+              <strong
+                ><p class="text-primary">
+                  Tienda Virtual
+                  <img src="../../assets/shopping-store.png" alt="" /></p
+              ></strong>
             </h3>
           </div>
         </div>
@@ -136,61 +142,98 @@
     </div>
     <!--Title -->
     <div class="my-2"></div>
-
     <!-- card2 -->
     <div class="d-flex justify-content-center">
       <div class="card border-secondary" style="width: 99%">
         <!-- Botones -->
-    
-          <!-- js Boton 1 -->
-          <div
-            class="tab-pane fade show active"
-            id="nav-home"
-            role="tabpanel"
-            aria-labelledby="nav-home-tab"
-            tabindex="0"
-          >
-            <div class="container">
-              <div class="row">
-                <!--Buttton  -->
-                <div class="container-fluid">
-                  <form class="d-flex divCenter01" id="formSearch">
-                    <div class="input-group mb-3">
-                      <!-- Name input -->
-                      <div class="form-control">
-                        <input
-                          type="text"
-                          id="registerName"
-                          class="form-control"
-                          name="nombre"
-                          placeholder="Buscar Productos"
-                          ,
-                          required
-                        />
-                      </div>
-                      <!-- Button -->
-                      <button type="submit" class="btn btn-secondary btn-block">
-                        Buscar
-                      </button>
-                    </div>
-                  </form>
-                </div>
-                <!--Buttton  -->
-                <div
-                  class="container">
-                  <div class="card shadow-lg border-0">
-                    <div class="card-body">
-                      <h5 class="card-title mb-3">Productos</h5>
-                      <div id="totalUsers"></div>
-                      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="showUser" >
-                        </div>
-                        </div>
+
+        <!-- js Boton 1 -->
+        <div
+          class="tab-pane fade show active"
+          id="nav-home"
+          role="tabpanel"
+          aria-labelledby="nav-home-tab"
+          tabindex="0"
+        >
+          <div class="container">
+            <div class="row">
+              <!-- selectores -->
+              <div class="container-fluid">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 col-lg-10 col-xl-12">
+                    <div class="card w-99">
+                      <div class="card-body">
+                        <form
+                          class="d-flex justify-content-between"
+                          id="formSearch"
+                        >
+                          <div class="d-flex align-items-center">
+                            <div class="form-check form-check-inline">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                value="moda"
+                                id="moda-checkbox"
+                              />
+                              <label
+                                class="form-check-label"
+                                for="moda-checkbox"
+                              >
+                                Moda
+                              </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                value="computacion"
+                                id="computacion-checkbox"
+                              />
+                              <label
+                                class="form-check-label"
+                                for="computacion-checkbox"
+                              >
+                                Computación
+                              </label>
+                            </div>
+                          <div class="d-flex align-items-center">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="registerName"
+                              name="nombre"
+                              placeholder="Buscar Productos"
+                              required
+                            />
+                            <button type="submit" class="btn btn-secondary">
+                              Buscar
+                            </button>
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <!-- selectores end -->
+
+              <div class="container">
+                <div class="card shadow-lg border-0">
+                  <div class="card-body">
+                    <h5 class="card-title mb-3">Productos</h5>
+                    <div id="totalUsers"></div>
+                    <div
+                      class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
+                      id="showUser"
+                    ></div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Card -->
 

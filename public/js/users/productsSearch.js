@@ -2,17 +2,27 @@
 // url para local y produccion
 const urlUser = window.location.hostname.includes("localhost")
   ? "http://localhost:8080/api/buscar/productosget/"
-  : "https://backend-nodejs-postgresql.up.railway.app/api/buscar/usuariosget/";
+  : "https://backend-nodejs-postgresql.up.railway.app/api/buscar/productosget/";
 
-const urlFaculties = window.location.hostname.includes("localhost")
-  ? "http://localhost:8080/api/buscar/facultades/"
-  : "https://backend-nodejs-postgresql.up.railway.app/api/buscar/facultades/";
+const urlSearchChecks = window.location.hostname.includes("localhost")
+  ? "http://localhost:8080/api/buscar/moda/"
+  : "https://backend-nodejs-postgresql.up.railway.app/api/buscar/moda";
 
-// variables of form Search Facultades
-const searchFaculties = document.querySelector("#formFaculties");
+const urlSearchCategorys = window.location.hostname.includes("localhost")
+  ? "http://localhost:8080/api/buscar/"
+  : "https://backend-nodejs-postgresql.up.railway.app/api/buscar/";
 
+
+  // variables of form Search Productos
+  const searchFaculties = document.querySelector("#formFaculties");
+  
+  // variables of form Searchs by checks
+  const modaCheckbox = document.getElementById('moda-checkbox');
+  const computacionCheckbox = document.getElementById('computacion-checkbox');
+
+// Mostrar Productos
 const showUserDate = async () => {
-  // Show Users All
+  // Show Produsct All start
   try {
     //Obtengo toda la información del route y controller buscar
     const searchUser = await fetch(urlUser + `res`, {
@@ -26,19 +36,19 @@ const showUserDate = async () => {
 
     //  Sending searchs users
     getUsers(numberRows, numberUsers);
-    console.log(numberUsers);
-    console.log(numberRows);
+
   } catch (error) {
     console.error(error);
   }
-  // Show Users All
 
-  // Search Users
-  // variables of form Search User
+  // Search products
   const searchUsers = document.querySelector("#formSearch");
 
-  searchUsers.addEventListener("submit", async (event) => {
+  searchUsers.addEventListener("submit", async (event) => { 
     event.preventDefault();
+    // for get cheks
+    const moda = modaCheckbox.checked;
+    const computacion = computacionCheckbox.checked;
 
     // leer formulario - mediante el name en el form
     const formData = {};
@@ -52,24 +62,102 @@ const showUserDate = async () => {
     console.log(search);
 
     try {
-      //Obtengo toda la información del route y controller buscar
-      const searchUser = await fetch(urlUser + `${search}`, {
-        method: "GET",
-      });
+      let results;
+  
+      if (moda && computacion) {
+        // Si ambos checkboxes están marcados, buscar sin restricciones
+        results = await fetch(urlSearchCategorys+`/general/${search}`).then(res => res.json());
+        // getUsers(results.results.rows, results.results.count);
 
-      // Sending json
-      const { results } = await searchUser.json();
-      let numberUsers = results.count;
-      let numberRows = results.rows;
+      } else if (moda) {
+        // Si solo el checkbox de moda está marcado, buscar solo en esa categoría
+        results = await fetch(urlSearchCategorys + `productocategoria01/${search}`).then(res => res.json());
+        // getUsers(results.results.rows, results.results.count);
 
-      //  Sending searchs users
-      getUsers(numberRows, numberUsers);
-    } catch (error) {
-      console.error(error);
-    }
+      } else if (computacion) {
+        // Si solo el checkbox de computación está marcado, buscar solo en esa categoría
+        results = await fetch(urlSearchCategorys + `productocategoria02/${search}`).then(res => res.json());
+        // getUsers(results.results.rows, results.results.count);
+
+      } else {
+        // Si ninguno de los checkboxes está marcado, no hacer nada
+        results = await fetch(urlSearchCategorys+`/general/${search}`).then(res => res.json());
+        // getUsers(results.results.rows, results.results.count);
+
+        // return;
+      }
+      // Mostrar los resultados de la búsqueda 
+      getUsers(results.results.rows, results.results.count);
+      console.log(results)
+
+  } catch (error) {
+    console.error(error);
+  }
+
+  //   try {
+  //     //Obtengo toda la información del route y controller buscar
+  //     const searchUser = await fetch(urlUser + `${search}`, {
+  //       method: "GET",
+  //     });
+
+  //     // Sending json
+  //     const { results } = await searchUser.json();
+  //     let numberUsers = results.count;
+  //     let numberRows = results.rows;
+
+  //     //  Sending searchs users
+  //     getUsers(numberRows, numberUsers);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
   });
 };
 
+  // Searchs by checks
+  modaCheckbox.addEventListener('change', buscarProductos);
+  computacionCheckbox.addEventListener('change', buscarProductos);
+  async function buscarProductos() {
+    // Obtener los valores de los checkboxes
+    const moda = modaCheckbox.checked;
+    const computacion = computacionCheckbox.checked;
+  
+    try {
+      let results;
+  
+      if (moda && computacion) {
+        // Si ambos checkboxes están marcados, buscar sin restricciones
+        results = await fetch(urlUser+`res`).then(res => res.json());
+        // getUsers(results.results.rows, results.results.count);
+
+      } else if (moda) {
+        // Si solo el checkbox de moda está marcado, buscar solo en esa categoría
+        results = await fetch(urlSearchChecks + 'moda').then(res => res.json());
+        // getUsers(results.results.rows, results.results.count);
+
+      } else if (computacion) {
+        // Si solo el checkbox de computación está marcado, buscar solo en esa categoría
+        results = await fetch(urlSearchChecks + 'computacion').then(res => res.json());
+        // getUsers(results.results.rows, results.results.count);
+
+      } else {
+        // Si ninguno de los checkboxes está marcado, no hacer nada
+        results = await fetch(urlUser+`res`).then(res => res.json());
+        // getUsers(results.results.rows, results.results.count);
+
+        // return;
+      }
+      // Mostrar los resultados de la búsqueda 
+      getUsers(results.results.rows, results.results.count);
+      console.log(results)
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Searchs by checks end
+
+// Mostrar Productos
 const getUsers = (value = [], numberUsers) => {
   let message = [];
   let nombre1 = [];
