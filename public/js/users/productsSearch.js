@@ -6,7 +6,7 @@ const urlUser = window.location.hostname.includes("localhost")
 
 const urlSearchChecks = window.location.hostname.includes("localhost")
   ? "http://localhost:8080/api/buscar/moda/"
-  : "https://backend-nodejs-postgresql.up.railway.app/api/buscar/moda";
+  : "https://backend-nodejs-postgresql.up.railway.app/api/buscar/moda/";
 
 const urlSearchCategorys = window.location.hostname.includes("localhost")
   ? "http://localhost:8080/api/buscar/"
