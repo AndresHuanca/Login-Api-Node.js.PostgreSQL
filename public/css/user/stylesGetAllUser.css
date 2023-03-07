@@ -1,0 +1,54 @@
+.body {
+    background-color: #e5e5ed;
+}
+.divCenter01{
+    margin: 0 auto;
+    padding: 1%;
+    width: 40%;
+}
+/* Logo Image */
+.avatar{
+    border-radius: 100%;
+    width: 70px;
+    height: 70px; 
+    margin-left: 1%;
+}
+.avatarManzana{
+    border-radius: 40%;
+    width: 20%;
+    height: 20%; 
+    margin-left: 1%;
+
+}
+
+/* searcForm */
+.searchForm{
+    margin-left: 1%;
+}
+.searchButton{
+    margin-left: 2%;
+
+}
+.buttonSearch{
+    text-align: center;
+    width: 40%;
+    height: 40%; 
+}
+
+/* items navar */
+.items {
+    float:right;
+}
+
+.itemsProfile{
+    width: 95%;
+    height: 95%; 
+}
+
+/*Main  */
+main {
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 1%;
+    background-color: lightgray;
+  }

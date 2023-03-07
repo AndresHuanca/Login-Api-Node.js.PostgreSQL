@@ -90,8 +90,8 @@
         
         for (let index = 0; index < value.length; index++) {
                 nombre1 = value[index].nombre;
-                apellidos1 = value[index].apellidos;
-                email1 = value[index].email;
+                apellidos1 = value[index].apellido;
+                email1 = value[index].correo;
                 id_usuario = value[index].id_usuario;
 
                 message1 += `

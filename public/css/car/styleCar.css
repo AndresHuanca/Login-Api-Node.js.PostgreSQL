@@ -1,0 +1,51 @@
+.body {
+    background-color: #e5e5ed;
+}
+/* Logo Image */
+.avatar{
+    border-radius: 100%;
+    width: 70px;
+    height: 70px; 
+    margin-left: 1%;
+}
+.avatarManzana{
+    border-radius: 40%;
+    width: 20%;
+    height: 20%; 
+    margin-left: 1%;
+
+}
+
+/* items navar */
+.items {
+    float:right;
+}
+
+.itemsProfile{
+    width: 95%;
+    height: 95%; 
+}
+
+/* precio */
+#precio {
+    color: orangered;
+    font-weight: bold;
+  }
+
+  #eliminar {
+    font-weight: bold !important;
+    text-decoration: none;
+  }
+
+  #eliminar:hover {
+    text-decoration: underline;
+  }
+
+
+/* img */
+.card-img-top {
+    max-width: 10%;
+    max-height: 10%;
+  }
+
+

@@ -59,7 +59,7 @@ const showUserDate = async () => {
       }
     }
     const search = formData.nombre;
-    console.log(search);
+    // console.log(search);
 
     try {
       let results;
@@ -88,28 +88,12 @@ const showUserDate = async () => {
       }
       // Mostrar los resultados de la búsqueda 
       getUsers(results.results.rows, results.results.count);
-      console.log(results)
+      // console.log(results)
 
   } catch (error) {
     console.error(error);
   }
 
-  //   try {
-  //     //Obtengo toda la información del route y controller buscar
-  //     const searchUser = await fetch(urlUser + `${search}`, {
-  //       method: "GET",
-  //     });
-
-  //     // Sending json
-  //     const { results } = await searchUser.json();
-  //     let numberUsers = results.count;
-  //     let numberRows = results.rows;
-
-  //     //  Sending searchs users
-  //     getUsers(numberRows, numberUsers);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
   });
 };
 

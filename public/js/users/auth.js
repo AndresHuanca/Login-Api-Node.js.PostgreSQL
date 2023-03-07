@@ -46,7 +46,7 @@
             localStorage.setItem( 'token', token );
             // console.log(token );
             // A vez autenticado - redireccionar
-            window.location = '/views/users/principal.html';
+            window.location = './views/start/principal.html';
 
         })
         .catch( err => {

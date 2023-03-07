@@ -81,7 +81,7 @@ const validarAdmin = async(user) => {
             if ( usuarios[index].rols.rol === 'ADMIN-ROL'  ) {
                 // View for Admin
                 let itemAdminAccount = `
-                <li><a class="dropdown-item" href="adminAccounts.html">Administrar Cuentas</a></li>
+                <li><a class="dropdown-item" href="../users/adminAccounts.html">Administrar Cuentas</a></li>
                 `
                 document.getElementById('adminAdmin').innerHTML = itemAdminAccount;
 

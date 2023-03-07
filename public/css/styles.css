@@ -1,6 +1,6 @@
 /* Imagen centrad en body */
 body{
-    background-image: url('../assets/54336.png');
+    background-image: url('../../assets/54336.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
