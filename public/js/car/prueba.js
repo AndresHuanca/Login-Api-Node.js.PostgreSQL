@@ -32,5 +32,3 @@ function solution(queries) {
     ["EXISTS", "0"]
   ];
   
-  console.log(solution(queries));
-  

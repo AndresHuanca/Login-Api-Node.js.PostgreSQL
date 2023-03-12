@@ -32,12 +32,13 @@
     font-weight: bold;
   }
 
-  #eliminar {
+  .eliminar {
+    cursor: pointer;
     font-weight: bold !important;
     text-decoration: none;
   }
 
-  #eliminar:hover {
+  .eliminar:hover {
     text-decoration: underline;
   }
 

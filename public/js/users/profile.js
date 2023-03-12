@@ -165,7 +165,7 @@ submitButton.addEventListener('click', () => {
     return response.json();
   })
   .then(data => {
-    console.log('Imagen actualizada con éxito');
+    // console.log('Imagen actualizada con éxito');
     location.reload();
     
   })

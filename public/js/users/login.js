@@ -26,7 +26,6 @@ const validarJWT = async() => {
 
     // Url of production or  developer
     // Extraigo en token del backen de la route auth/
-    // y se adigna el token al localStorage
     const resp = await fetch( url, { 
         headers: { 'x-token': token1 }
     });

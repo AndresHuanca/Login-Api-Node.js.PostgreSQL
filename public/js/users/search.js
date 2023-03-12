@@ -48,7 +48,7 @@ const showUserDate = async () => {
       }
     }
     const search = formData.nombre;
-    console.log(search);
+    // console.log(search);
 
     try {
       //Obtengo toda la información del route y controller buscar
@@ -118,7 +118,7 @@ const getUsers = (value=[], numberUsers) => {
     if(numberUsers == 0){
         message=``;
         document.getElementById('showUser').innerHTML = message;
-        console.log(message);
+        // console.log(message);
     }
     // Sending numbers users
     numberUsers = `<p>Total : ${numberUsers}</p>`

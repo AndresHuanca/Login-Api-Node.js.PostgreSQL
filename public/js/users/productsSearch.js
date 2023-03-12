@@ -138,7 +138,6 @@ const showUserDate = async () => {
     console.error(error);
   }
 }
-
 // Searchs by checks end
 
 // Mostrar Productos
@@ -154,6 +153,7 @@ const getUsers = (value = [], numberUsers) => {
     descripcion = value[index].descripcion;
     img1 = value[index].img;
     precio = value[index].precio;
+    id_producto = value[index].id_producto;
 
     message += `
     <div class="col">
@@ -167,7 +167,10 @@ const getUsers = (value = [], numberUsers) => {
         <h5 class="card-title mb-3">${nombre1}</h5>
         <p class="card-text mb-3">${descripcion}</p>
         <p class="card-text mb-3"><strong>Precio:</strong>${precio}</p>
-        <a href="#" class="btn btn-primary">Comprar ahora</a>
+        <div class="d-flex justify-content-between">
+          <!-- <a href="#" class="btn btn-primary">Comprar ahora</a> -->
+          <a  class="btn btn-secondary ml-3" data-id="${id_producto}" onclick="addToCart(this.dataset.id)">Añadir al Carrito</a>
+        </div>
       </div>
     </div>
   </div>
@@ -186,6 +189,7 @@ const getUsers = (value = [], numberUsers) => {
   numberUsers = `<p>Total : ${numberUsers}</p>`;
   document.getElementById("totalUsers").innerHTML = numberUsers;
 };
+
 
 const mainSearch = async () => {
   // Validar Admin
