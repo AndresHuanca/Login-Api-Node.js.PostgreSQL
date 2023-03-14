@@ -54,6 +54,7 @@
                     //Escuchando el boton 
                     document.querySelectorAll('#deleteUser').forEach(button => {
                     button.addEventListener('click', event =>{
+                      // event.preventDefault();
                       // asignando los atributos con event
                       // Enviando id_usuario
                       const buttonName = event.target.name;
@@ -172,9 +173,6 @@
        
       // listener User
       const deleteUsers = ( buttonName, token ) => {
-                
-        console.log('¡Haz hech clic en el botón!');
-        console.log(buttonName);
         
         // Fetch Delete User
         fetch(url02 +`${buttonName}`, {
@@ -193,7 +191,6 @@
               }
               if( msg ) {
                 // Reiniciar html
-                window.location = '../../views/users/adminAccounts.html';
                 // displayAlert(msg);
                   return console.error( msg );
               }

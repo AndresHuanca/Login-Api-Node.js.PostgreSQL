@@ -77,9 +77,8 @@ const car = async (cars=[], total) => {
           <p class="card-text ms-3" id="precio">S/${subtotal}</p>
           <div class="ms-auto">
             <select
-              class="form-select form-select-sm"
+              class="form-select form-select-sm miSelect"
               aria-label=".form-select-sm example"
-              id="miSelect"
               onchange="addProduct()" 
             >
               <option data-id="${id_proCar}" selected>${cantidad}</option>
@@ -100,8 +99,8 @@ const car = async (cars=[], total) => {
             <a data-id="${id_proCar}"  class="text-danger eliminar"  onclick="removeProduct(this.dataset.id)">Eliminar</a>
         </div>
         `
-        
     })
+
     // sending car
     document.getElementById("car").innerHTML = result;
     

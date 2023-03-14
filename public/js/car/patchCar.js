@@ -66,46 +66,50 @@ const removeProduct = async (id_producto) => {
 
 // Amount product
 const addProduct = () => {
-    const select = document.getElementById("miSelect");
-    // Value
-    let product = select.value;
-    // id_product
-    let id_product = select.options[select.selectedIndex].getAttribute("data-id");
+    const select = document.querySelectorAll('.miSelect');
 
-    // para obviar el primer click
-    if(product !== "" && id_product !=="") {
-
-        // Assigning quantity
-        const formData = {
-            cantidad: product,
-        }
-
-        fetch( urlAmount + `${id_product}`, { 
-            method: 'PATCH',
-            body: JSON.stringify( formData ),
-            headers: { 'Content-type': 'application/JSON' },
-            
-        })
-        .then( resp => resp.json())
-        .then( ({errors,msg}) => {
-            // Mostrar los errores del backend
-            if( errors ) {        
-                // displayAlert(errors);
-                return console.error( errors );
+    // Iterate over the list of elements
+    select.forEach( (select) => {
+        // Get value amount
+        let product = select.value;
+        // get data-id
+        // id_product
+        let id_product = select.options[select.selectedIndex].getAttribute("data-id");
+        
+        // para obviar el primer click
+        if(product !== "" && id_product !=="") {
+    
+            // Assigning quantity
+            const formData = {
+                cantidad: product,
             }
-            if( msg ) {
-                // displayAlert(msg);
-                return console.error( msg );
-            }
+    
+            fetch( urlAmount + `${id_product}`, { 
+                method: 'PATCH',
+                body: JSON.stringify( formData ),
+                headers: { 'Content-type': 'application/JSON' },
+                
+            })
+            .then( resp => resp.json())
+            .then( ({errors,msg}) => {
+                // Mostrar los errores del backend
+                if( errors ) {        
+                    // displayAlert(errors);
+                    return console.error( errors );
+                }
+                if( msg ) {
+                    // displayAlert(msg);
+                    return console.error( msg );
+                }
 
-            // A vez autenticado - recargar la pagina
-            location.reload();    
-        })
-        .catch( err => {
-            console.log(err);
-        });
+                location.reload();    
+            })
+            .catch( err => {
+                console.log(err);
+            });
+        };
 
+    });
 
-    }
-}
+};
 
